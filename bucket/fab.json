@@ -1,0 +1,44 @@
+{
+    "version": "1.9",
+    "description": "Easy interface to block or unblock apps via Windows Firewall. Drag and drop, portable freeware.",
+    "homepage": "https://www.sordum.org/8125/firewall-app-blocker-fab-v1-9/",
+    "license": "Freeware",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.sordum.org/files/downloads.php?firewall-app-blocker",
+            "hash": "589dd1b53a59c55a80b1fffd7e492f29dd226141ab64425e3fa464a0ac1316c0"
+        },
+        "32bit": {
+            "url": "https://www.sordum.org/files/downloads.php?firewall-app-blocker",
+            "hash": "589dd1b53a59c55a80b1fffd7e492f29dd226141ab64425e3fa464a0ac1316c0"
+        }
+    },
+    "extract_dir": ".",
+    "bin": [
+        "Fab.exe",
+        "Fab_x64.exe"
+    ],
+    "shortcuts": [
+        [
+            "Fab.exe",
+            "Firewall App Blocker"
+        ]
+    ],
+    "persist": [
+        "Fab.ini"
+    ],
+    "checkver": {
+        "url": "https://www.sordum.org/8125/firewall-app-blocker-fab-v1-9/",
+        "regex": "Firewall App Blocker \\(Fab\\) v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.sordum.org/files/downloads.php?firewall-app-blocker"
+            },
+            "32bit": {
+                "url": "https://www.sordum.org/files/downloads.php?firewall-app-blocker"
+            }
+        }
+    }
+}
