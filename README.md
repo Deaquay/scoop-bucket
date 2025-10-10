@@ -1,7 +1,5 @@
 # Deaquay's Scoop Bucket
 
-[![Tests](https://github.com/Deaquay/scoop-bucket/actions/workflows/ci.yml/badge.svg)](https://github.com/Deaquay/scoop-bucket/actions/workflows/ci.yml) [![Excavator](https://github.com/Deaquay/scoop-bucket/actions/workflows/excavator.yml/badge.svg)](https://github.com/Deaquay/scoop-bucket/actions/workflows/excavator.yml)
-
 A personal [Scoop](https://scoop.sh) bucket containing useful applications and utilities for Windows.
 
 ## 📦 Apps Available
