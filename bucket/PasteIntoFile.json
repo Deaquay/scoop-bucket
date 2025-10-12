@@ -5,7 +5,6 @@
     "license": "MIT",
     "url": "https://github.com/eltos/PasteIntoFile/releases/download/v5.5/PasteIntoFile_v5.5_portable_signed.zip",
     "hash": "sha256:bf27570047e5a4fe37875738ff569e285f4b2539d643e35c1dcaa1800b987b64",
-    "extract_dir": "PasteIntoFile",
     "bin": "PasteIntoFile.exe",
     "shortcuts": [
         [
