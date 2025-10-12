@@ -7,7 +7,14 @@
     "hash": "sha256:2771e01e6cb858f71f95939d5868f31564546a8ceb5a7d621e424b6fa7683b0b",
     "installer": {
         "script": [
-            "Start-Process -Wait -FilePath \"msiexec\" -ArgumentList \"/i\", \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\", \"/qn\" -Verb RunAs",
+            "$tempDir = Join-Path $env:TEMP 'PasteIntoFile_Extract'",
+            "New-Item -ItemType Directory -Path $tempDir -Force | Out-Null",
+            "Start-Process -Wait -FilePath \"msiexec\" -ArgumentList \"/a\", \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\", \"/qb\", \"TARGETDIR=$tempDir\"",
+            "Get-ChildItem -Path $tempDir -Recurse | Where-Object { $_.Name -eq 'PasteIntoFile.exe' } | ForEach-Object {",
+            "    $sourceDir = $_.DirectoryName",
+            "    Copy-Item -Path \"$sourceDir\\*\" -Destination \"$dir\" -Recurse -Force",
+            "}",
+            "Remove-Item -Path $tempDir -Recurse -Force",
             "Remove-Item \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\""
         ]
     },
