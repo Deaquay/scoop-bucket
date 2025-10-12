@@ -7,7 +7,8 @@ A personal [Scoop](https://scoop.sh) bucket containing useful applications and u
 | App | Version | Description |
 |-----|---------|-------------|
 | **freefilesync** | 14.5 | Folder comparison and synchronization software |
-| **steamedit** | Latest | Steam library management and editing tool |
+| **steamedit** | 1.4.1 | Steam library management and editing tool |
+| **PasteIntoFile** | 5.5 | Paste clipboard data into files and copy file contents via hotkey or context menu |
 
 ## 🚀 Installation
 
@@ -25,6 +26,9 @@ scoop install deaquay/freefilesync
 
 # Install SteamEdit
 scoop install deaquay/steamedit
+
+# Install PasteIntoFile
+scoop install deaquay/PasteIntoFile
 ```
 
 ## 🔄 Updates
@@ -37,6 +41,8 @@ scoop update *
 
 # Update specific app
 scoop update freefilesync
+scoop update steamedit
+scoop update PasteIntoFile
 ```
 
 ## 📋 Requirements
