@@ -3,35 +3,25 @@
     "description": "Paste clipboard data into files and copy file contents directly via hotkey or context menu",
     "homepage": "https://github.com/eltos/PasteIntoFile",
     "license": "MIT",
-    "url": "https://github.com/eltos/PasteIntoFile/releases/download/v5.5/PasteIntoFile_v5.5_installer_signed.msi",
-    "hash": "sha256:2771e01e6cb858f71f95939d5868f31564546a8ceb5a7d621e424b6fa7683b0b",
-    "installer": {
-        "script": [
-            "$tempDir = Join-Path $env:TEMP 'PasteIntoFile_Extract'",
-            "New-Item -ItemType Directory -Path $tempDir -Force | Out-Null",
-            "Start-Process -Wait -FilePath \"msiexec\" -ArgumentList \"/a\", \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\", \"/qb\", \"TARGETDIR=$tempDir\"",
-            "Get-ChildItem -Path $tempDir -Recurse | Where-Object { $_.Name -eq 'PasteIntoFile.exe' } | ForEach-Object {",
-            "    $sourceDir = $_.DirectoryName",
-            "    Copy-Item -Path \"$sourceDir\\*\" -Destination \"$dir\" -Recurse -Force",
-            "}",
-            "Remove-Item -Path $tempDir -Recurse -Force",
-            "Remove-Item \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\""
+    "url": "https://github.com/eltos/PasteIntoFile/releases/download/v5.5/PasteIntoFile_v5.5_portable_signed.zip",
+    "hash": "sha256:bf27570047e5a4fe37875738ff569e285f4b2539d643e35c1dcaa1800b987b64",
+    "extract_dir": "PasteIntoFile-Portable",
+    "bin": "PasteIntoFile.exe",
+    "shortcuts": [
+        [
+            "PasteIntoFile.exe",
+            "PasteIntoFile"
         ]
-    },
-    "uninstaller": {
-        "script": [
-            "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'Paste Into File' } | ForEach-Object { $_.Uninstall() }"
-        ]
-    },
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/eltos/PasteIntoFile/releases/latest",
         "jsonpath": "$.tag_name",
         "regex": "v([\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/eltos/PasteIntoFile/releases/download/v$version/PasteIntoFile_v$version_installer_signed.msi",
+        "url": "https://github.com/eltos/PasteIntoFile/releases/download/v$version/PasteIntoFile_v$version_portable_signed.zip",
         "hash": {
-            "url": "https://github.com/eltos/PasteIntoFile/releases/download/v$version/PasteIntoFile_v$version_installer_signed.msi.sha256"
+            "url": "https://github.com/eltos/PasteIntoFile/releases/download/v$version/PasteIntoFile_v$version_portable_signed.zip.sha256"
         }
     }
 }
