@@ -1,0 +1,30 @@
+{
+    "version": "5.5",
+    "description": "Paste clipboard data into files and copy file contents directly via hotkey or context menu",
+    "homepage": "https://github.com/eltos/PasteIntoFile",
+    "license": "MIT",
+    "url": "https://github.com/eltos/PasteIntoFile/releases/download/v5.5/PasteIntoFile_v5.5_installer_signed.msi",
+    "hash": "sha256:2771e01e6cb858f71f95939d5868f31564546a8ceb5a7d621e424b6fa7683b0b",
+    "installer": {
+        "script": [
+            "Start-Process -Wait -FilePath \"msiexec\" -ArgumentList \"/i\", \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\", \"/qn\" -Verb RunAs",
+            "Remove-Item \"$dir\\PasteIntoFile_v5.5_installer_signed.msi\""
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'Paste Into File' } | ForEach-Object { $_.Uninstall() }"
+        ]
+    },
+    "checkver": {
+        "url": "https://api.github.com/repos/eltos/PasteIntoFile/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/eltos/PasteIntoFile/releases/download/v$version/PasteIntoFile_v$version_installer_signed.msi",
+        "hash": {
+            "url": "https://github.com/eltos/PasteIntoFile/releases/download/v$version/PasteIntoFile_v$version_installer_signed.msi.sha256"
+        }
+    }
+}
