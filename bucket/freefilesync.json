@@ -1,10 +1,10 @@
 {
-    "version": "14.11",
+    "version": "14.12",
     "description": "FreeFileSync is a folder comparison and synchronization software that creates and manages backup copies of all your important files.",
     "homepage": "https://github.com/hkneptune/FreeFileSync",
     "license": "GPL-3.0",
-    "url": "https://github.com/hkneptune/FreeFileSync/releases/download/v14.11/FreeFileSync_14.11_Windows_Setup.exe",
-    "hash": "7a64c0b625e516c7c7ce57dbe0c66fffb6a4e736d76c16e5815912919749beae",
+    "url": "https://github.com/hkneptune/FreeFileSync/releases/download/v14.12/FreeFileSync_14.12_Windows_Setup.exe",
+    "hash": "59170960184d4273d45a563b790aaaf89419682f4018104ad88d1e1ae40f80a9",
     "installer": {
         "script": [
             "$installer = Get-ChildItem \"$dir\" -Filter '*.exe' | Select-Object -First 1",
